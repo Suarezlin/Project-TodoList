@@ -13,10 +13,10 @@ import java.util.Date;
 @Data
 @Entity
 @RequiredArgsConstructor
-public class TodoModel {
+public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
