@@ -3,6 +3,8 @@ package com.link.todolist.Controller;
 import com.link.todolist.Model.Todo;
 import com.link.todolist.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,13 @@ public class TodoController {
     @GetMapping("/")
     public ResponseEntity<Iterable<Todo>> getAllTodo() {
         return new ResponseEntity<>(todoRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/page/{page}")
+    public ResponseEntity<Iterable<Todo>> getPageTodo(@PathVariable int page) {
+        PageRequest p = PageRequest.of(page, 10, Sort.by("id").descending());
+
+        return new ResponseEntity<>(todoRepository.findAll(p).getContent(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
