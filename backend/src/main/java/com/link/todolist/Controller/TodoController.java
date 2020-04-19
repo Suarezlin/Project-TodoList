@@ -21,7 +21,8 @@ public class TodoController {
 
     @GetMapping("/")
     public ResponseEntity<Iterable<Todo>> getAllTodo() {
-        return new ResponseEntity<>(todoRepository.findAll(), HttpStatus.OK);
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        return new ResponseEntity<>(todoRepository.findAll(sort), HttpStatus.OK);
     }
 
     @GetMapping("/page/{page}")

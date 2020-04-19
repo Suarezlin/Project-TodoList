@@ -8,7 +8,8 @@ export const getTodos = () => {
 }
 
 export const addTodo = (todo) => {
-	return doRequestWithBody(TODO_PATH, 'post', todo);
+    return doRequestWithBody(TODO_PATH, 'post', todo)
+    .then(response => response.json());
 }
 
 export const updateTodo = (todo) => {

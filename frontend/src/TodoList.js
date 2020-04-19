@@ -23,13 +23,16 @@ const TodoList = () => {
     if (inputValue === "") return;
 
     const newTask = {
-      id: _.parseInt(list.length ? list[list.length - 1].id : 0) + 1,
+      // id: _.parseInt(list.length ? list[list.length - 1].id : 0) + 1,
+      id: null,
       content: inputValue,
       date: new Date()
     };
 
-    addTodo(newTask).then(() => {
-      setList([...list, newTask]);
+    addTodo(newTask).then((task) => {
+
+      list.unshift(task)
+      setList(list);
       setInputValue("");
     });
   };
