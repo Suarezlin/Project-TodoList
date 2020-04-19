@@ -1,4 +1,4 @@
-const basePath = (process.env.NODE_ENV === 'production' ? '/todo-list':'');
+const basePath = (process.env.NODE_ENV === 'production' ? '/':'');
 
 export const doRequest = (path, params) => {
 	let mergedParams = {

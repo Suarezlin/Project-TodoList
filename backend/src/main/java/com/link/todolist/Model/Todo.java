@@ -26,8 +26,4 @@ public class Todo {
     @NotNull
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date date;
-
-    @NotNull
-    private boolean status;
-
 }

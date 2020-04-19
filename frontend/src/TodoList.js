@@ -25,6 +25,7 @@ const TodoList = () => {
     const newTask = {
       id: _.parseInt(list.length ? list[list.length - 1].id : 0) + 1,
       content: inputValue,
+      date: new Date()
     };
 
     addTodo(newTask).then(() => {

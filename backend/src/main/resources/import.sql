@@ -1,3 +1,3 @@
-insert into todo (id, content, date, status) values ( 1, '测试1', now(), 0 );
+insert into todo (id, content, date) values ( 1, '测试1', now());
 
-insert into todo (id, content, date, status) values ( 2, '测试2', now(), 1 );
+insert into todo (id, content, date) values ( 2, '测试2', now());

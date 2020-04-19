@@ -1,6 +1,6 @@
 import {doRequest, doRequestWithBody, doDeleteRequest} from './BaseApi'
 
-const TODO_PATH = "/api/tasks";
+const TODO_PATH = "/todo/";
 
 export const getTodos = () => {
      return doRequest(TODO_PATH)
@@ -12,10 +12,10 @@ export const addTodo = (todo) => {
 }
 
 export const updateTodo = (todo) => {
-	return doRequestWithBody(TODO_PATH + "/" + todo.id, 'put', todo)
+	return doRequestWithBody(TODO_PATH, 'put', todo)
     .then(response => response.json());
 }
 
 export const deleteTodo = (todoId) => {	
-    return doDeleteRequest(TODO_PATH + "/" + todoId);
+    return doDeleteRequest(TODO_PATH + todoId);
 }

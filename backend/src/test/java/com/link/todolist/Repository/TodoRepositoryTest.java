@@ -44,26 +44,7 @@ class TodoRepositoryTest {
         assertEquals(true, empty);
     }
 
-    @Test
-    public void testfindByIdAndAndStatus() {
-        Optional<Todo> t = repository.findByIdAndAndStatus(1L, true);
 
-        assertEquals(true, t.isEmpty());
-
-        t = repository.findByIdAndAndStatus(1L, false);
-        assertEquals(false, t.isEmpty());
-        assertEquals("测试1", t.get().getContent());
-
-        t = repository.findByIdAndAndStatus(2L, false);
-
-        assertEquals(true, t.isEmpty());
-
-        t = repository.findByIdAndAndStatus(2L, true);
-        assertEquals(false, t.isEmpty());
-        assertEquals("测试2", t.get().getContent());
-
-
-    }
 
     @Test
     public void testSave() {
@@ -76,7 +57,6 @@ class TodoRepositoryTest {
 
         s.setContent("测试3");
         s.setDate(new Date());
-        s.setStatus(false);
 
         s = repository.save(s);
 

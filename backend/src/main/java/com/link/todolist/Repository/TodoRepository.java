@@ -11,9 +11,7 @@ public interface TodoRepository extends PagingAndSortingRepository<Todo, Long> {
     Optional<Todo> findById(Long id);
 
     Iterable<Todo> findAll();
-
-    Optional<Todo> findByIdAndAndStatus(Long id, boolean status);
-
+    
     Todo save(Todo s);
 
     void deleteById(Long id);

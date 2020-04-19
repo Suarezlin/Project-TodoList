@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/todo")
+@CrossOrigin(origins="*")
 public class TodoController {
 
     @Autowired
@@ -24,7 +25,10 @@ public class TodoController {
     }
 
     @GetMapping("/page/{page}")
-    public ResponseEntity<Iterable<Todo>> getPageTodo(@PathVariable int page) {
+    public ResponseEntity<Iterable<Todo>> getPagedTodo(@PathVariable int page) {
+        if (page < 0) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
         PageRequest p = PageRequest.of(page, 10, Sort.by("id").descending());
 
         return new ResponseEntity<>(todoRepository.findAll(p).getContent(), HttpStatus.OK);
